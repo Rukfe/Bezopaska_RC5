@@ -168,7 +168,16 @@ namespace RC5Lib
             var rng = RandomNumberGenerator.Create();
             byte[] randombytes = new byte[128];
             rng.GetBytes(randombytes);
-            return Encoding.UTF8.GetString(randombytes);
+
+            const string validChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            char[] result = new char[128];
+            for (int i = 0; i < 128; i++)
+            {
+                result[i] = validChars[randombytes[i] % validChars.Length];
+            }
+            byte[] utf8bytes = Encoding.UTF8.GetBytes(result);
+
+            return Encoding.UTF8.GetString(utf8bytes);
         }
 
         //принимает строку в UTF8, возвращает строку в Base64

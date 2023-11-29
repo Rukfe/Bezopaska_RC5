@@ -9,3 +9,14 @@ C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.dll
 C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Release\net6.0\refint\RC5Lib.dll
 C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.pdb
 C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Release\net6.0\ref\RC5Lib.dll
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\bin\Release\net6.0\RC5Lib.deps.json
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\bin\Release\net6.0\RC5Lib.dll
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\bin\Release\net6.0\RC5Lib.pdb
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.AssemblyInfoInputs.cache
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.AssemblyInfo.cs
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.csproj.CoreCompileInputs.cache
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.dll
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\refint\RC5Lib.dll
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\RC5Lib.pdb
+D:\GitHub\Bezopaska_RC5\src\RC5Lib\RC5Lib\obj\Release\net6.0\ref\RC5Lib.dll

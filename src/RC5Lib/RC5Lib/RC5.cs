@@ -3,7 +3,7 @@ using System.Text;
 
 namespace RC5Lib
 {
-    public class RC5
+    public static class RC5
     {
         private const int W = 64; //половина длины слова в битах
         private const int R = 128; //количество раундов
@@ -22,12 +22,12 @@ namespace RC5Lib
         private const UInt64 PW = 0xB7E151628AED2A6B;
         private const UInt64 QW = 0x9E3779B97F4A7C15;
 
-        private UInt64[] L; //слова для секретного ключа
-        private UInt64[] S; //таблица расширенных ключей
+        private static UInt64[] L; //слова для секретного ключа
+        private static UInt64[] S; //таблица расширенных ключей
 
-        private int b; //длина ключа в байтах
-        private int t; //размер таблицы S
-        private int c; //размер массива слов L
+        private static int b; //длина ключа в байтах
+        private static int t; //размер таблицы S
+        private static int c; //размер массива слов L
 
         /*
          * Перед непосредственно шифрованием или расшифровкой данных выполняется процедура расширения ключа.
@@ -37,23 +37,7 @@ namespace RC5Lib
          * 3.Построение таблицы расширенных ключей
          * 4.Перемешивание
          */
-
-        //принимает строку в UTF8
-        public RC5(string key)
-        {
-            byte[] tempkey = Encoding.UTF8.GetBytes(key);
-            Extend(tempkey);
-        }
-
-        public RC5()
-        {
-            var rng = RandomNumberGenerator.Create();
-            byte[] randombytes = new byte[128];
-            rng.GetBytes(randombytes);
-            Extend(randombytes);
-        }
-
-        private void Extend(byte[] key)
+        private static void Extend(byte[] key)
         {
             // основные переменные
             UInt64 x, y;
@@ -102,7 +86,7 @@ namespace RC5Lib
         }
 
         //вращение битов влево
-        private UInt64 ROTL(UInt64 a, int offset)
+        private static UInt64 ROTL(UInt64 a, int offset)
         {
             UInt64 r1, r2;
             r1 = a << offset;
@@ -112,7 +96,7 @@ namespace RC5Lib
         }
 
         //вращение битов вправо
-        private UInt64 ROTR(UInt64 a, int offset)
+        private static UInt64 ROTR(UInt64 a, int offset)
         {
             UInt64 r1, r2;
             r1 = a >> offset;
@@ -142,7 +126,7 @@ namespace RC5Lib
             b[p + 7] = (byte)(a & 0xFF);
         }
 
-        private void Cipher(byte[] inBuf, byte[] outBuf)
+        private static void Cipher(byte[] inBuf, byte[] outBuf)
         {
             UInt64 a = BytesToUInt64(inBuf, 0);
             UInt64 b = BytesToUInt64(inBuf, 8);
@@ -160,7 +144,7 @@ namespace RC5Lib
             UInt64ToBytes(b, outBuf, 8);
         }
 
-        private void Decipher(byte[] inBuf, byte[] outBuf)
+        private static void Decipher(byte[] inBuf, byte[] outBuf)
         {
             UInt64 a = BytesToUInt64(inBuf, 0);
             UInt64 b = BytesToUInt64(inBuf, 8);
@@ -178,9 +162,20 @@ namespace RC5Lib
             UInt64ToBytes(b, outBuf, 8);
         }
 
-        //принимает строку в UTF8, возвращает строку в Base64
-        public string Encrypt(string text)
+        //возвращает строку в UTF8
+        public static string KeyGen()
         {
+            var rng = RandomNumberGenerator.Create();
+            byte[] randombytes = new byte[128];
+            rng.GetBytes(randombytes);
+            return Encoding.UTF8.GetString(randombytes);
+        }
+
+        //принимает строку в UTF8, возвращает строку в Base64
+        public static string Encrypt(string text, string key)
+        {
+            byte[] tempkey = Encoding.UTF8.GetBytes(key);
+            Extend(tempkey);
             byte[] buf;
             using (var mstream = new MemoryStream())
             using (var writer = new BinaryWriter(mstream))
@@ -214,8 +209,10 @@ namespace RC5Lib
         }
 
         //принимает строку в Base64, возвращает строку в UTF8
-        public string Decrypt(string data)
+        public static string Decrypt(string data, string key)
         {
+            byte[] tempkey = Encoding.UTF8.GetBytes(key);
+            Extend(tempkey);
             byte[] tempdata = Convert.FromBase64String(data);
             byte[] result = new byte[tempdata.Length];
             byte[] input = new byte[16];

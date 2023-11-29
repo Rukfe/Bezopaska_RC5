@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\Debugger\\Debugger.csproj",
+      "projectUniqueName": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
       "projectName": "Debugger",
-      "projectPath": "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\Debugger\\Debugger.csproj",
+      "projectPath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
       "packagesPath": "C:\\Users\\ASER\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\Debugger\\obj\\",
+      "outputPath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
-              "projectPath": "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
+            "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
+              "projectPath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
             }
           }
         }

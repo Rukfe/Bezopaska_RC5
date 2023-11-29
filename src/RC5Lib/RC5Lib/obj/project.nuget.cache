@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kahsVKYyNttrejSe3Zl+mpaVjEKf1pAEX+RvOFcrrCDcRliq3WvyBhIXFGSFPS4aT3xXFCJ/VEBUZS4Qoy5l4g==",
+  "dgSpecHash": "lrUiynOlzhL2pdS09rjZwNYAZovB1z015Ba0WlSWbqsJ8oHU/0ZNUkZCUFEKwqO5hsF0tyXi6SAV+CgAAJ08Bg==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\Bezopaska_RC5\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
+  "projectFilePath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,11 @@
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\bin\Debug\net6.0\RC5Lib.deps.json
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\bin\Debug\net6.0\RC5Lib.dll
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\bin\Debug\net6.0\RC5Lib.pdb
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.AssemblyInfoInputs.cache
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.AssemblyInfo.cs
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.csproj.CoreCompileInputs.cache
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.dll
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\refint\RC5Lib.dll
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\RC5Lib.pdb
+C:\Users\ASER\source\repos\RC5Lib\RC5Lib\obj\Debug\net6.0\ref\RC5Lib.dll

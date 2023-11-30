@@ -1,0 +1,77 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#inputText {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+#encryptButton {
+  padding: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  left: -60px;
+  bottom: 5px;
+}
+
+#encryptButton:hover {
+  background-color: #0056b3;
+}
+
+#decryptButton {
+  padding: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  left: 58px;
+  bottom: 41px;
+}
+
+#decryptButton:hover {
+  background-color: #0056b3;
+}
+
+#encryptedTextContainer {
+  margin-top: 20px;
+}
+.input-error {
+  animation: shake 0.5s ease-in-out;
+}
+@keyframes shake {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  20% {
+      transform: translateX(-4px);
+  }
+  40% {
+      transform: translateX(4px);
+  }
+  60%{
+      transform: translateX(-4px);
+  }
+  80%{
+      transform: translateX(4px);
+  }
+}

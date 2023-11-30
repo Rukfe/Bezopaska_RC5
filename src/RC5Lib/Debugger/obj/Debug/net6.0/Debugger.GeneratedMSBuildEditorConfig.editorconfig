@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Debugger
+<<<<<<< Updated upstream
 build_property.ProjectDir = C:\Users\Rukfe\Desktop\Bezopaska_RC5\src\RC5Lib\Debugger\
+=======
+build_property.ProjectDir = D:\GitHub\Bezopaska_RC5\src\RC5Lib\Debugger\
+>>>>>>> Stashed changes

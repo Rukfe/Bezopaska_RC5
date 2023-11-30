@@ -234,7 +234,7 @@ namespace RC5Lib
             }
 
             int bytes = BitConverter.ToInt32(result, 0);
-            return Encoding.UTF8.GetString(result, 4, bytes);
+            return Encoding.UTF8.GetString(result, 4, bytes-4);
         }
     }
 }

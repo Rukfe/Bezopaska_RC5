@@ -3,8 +3,13 @@ import rc_lib
 import json
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="react-app/build", static_url_path='')
 app.secret_key = 'sh_u_e'
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 @app.route('/encrypt', methods=['POST'])

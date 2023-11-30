@@ -10,11 +10,15 @@ clr.AddReference(pathDLL)
 # Импорт RC5 из библиотеки
 from RC5Lib import RC5
 
+
 def key_gen():
     return RC5.KeyGen()
+
 
 def encrypt(message, key):
     return RC5.Encrypt(message, key)
 
+
 def decrypt(encrypted_message, key):
     return RC5.Decrypt(encrypted_message, key)
+

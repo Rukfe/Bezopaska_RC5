@@ -2,17 +2,16 @@ from flask import Flask, request, session, jsonify
 import rc_lib
 import json
 
+
 app = Flask(__name__)
 app.secret_key = 'sh_u_e'
 
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt_message():
-    print(session)
     message = request.json['message']
 
     key = session.get('encryption_key')
-
     if key is None:
         key = rc_lib.key_gen()
         session['encryption_key'] = key
@@ -23,7 +22,6 @@ def encrypt_message():
 
 @app.route('/decrypt', methods=['POST'])
 def decrypt_message():
-    print(session)
     message = request.json['message']
     key = session.get('encryption_key')
 

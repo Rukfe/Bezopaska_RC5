@@ -1,5 +1,4 @@
 from flask import Flask, request, session, jsonify
-import os
 import rc_lib
 import json
 

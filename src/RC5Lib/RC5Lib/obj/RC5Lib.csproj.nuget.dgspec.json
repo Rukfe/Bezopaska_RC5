@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {}
+    "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
+    "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
+        "projectUniqueName": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
         "projectName": "RC5Lib",
-        "projectPath": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
-        "packagesPath": "C:\\Users\\Rukfe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\obj\\",
+        "projectPath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
+        "packagesPath": "C:\\Users\\ASER\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rukfe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

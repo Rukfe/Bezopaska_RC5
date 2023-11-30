@@ -5,29 +5,30 @@ using RC5Lib;
 string key = RC5.KeyGen();
 Console.WriteLine("Ключ: " + key + '\n');
 
-<<<<<<< Updated upstream
+string message = "Пизда";
+string encrypted1, encrypted2, encrypted3, decrypted;
 
-string message = "Блять";
-string encrypted, decrypted;
+encrypted1 = RC5.Encrypt(message, key);
+encrypted2 = RC5.Encrypt(message, key);
+encrypted3 = RC5.Encrypt(message, key);
 
-encrypted = RC5.Encrypt(message, key);
-=======
-string encrypted = RC5.Encrypt("Я ебал в рот (В рот) тех, кто не ебал в рот тех, кто ебал в жопу", key);
->>>>>>> Stashed changes
-Console.WriteLine("Зашифрованное сообщение: " + encrypted);
+Console.WriteLine("Зашифрованное сообщение: " + encrypted1 + '\n');
 
-decrypted = RC5.Decrypt(encrypted, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted + "\n");
+decrypted = RC5.Decrypt(encrypted1, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
 
-<<<<<<< Updated upstream
-=======
+Console.WriteLine("Зашифрованное сообщение: " + encrypted2 + '\n');
 
-string message = "Я ебал в рот (В рот) тех, кто не ебал в рот тех, кто ебал в жопу";
-Console.WriteLine("Оригинальное сообщение: " + message);
+decrypted = RC5.Decrypt(encrypted2, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
 
->>>>>>> Stashed changes
-encrypted = RC5.Encrypt(message, key);
-Console.WriteLine("Зашифрованное сообщение: " + encrypted);
+Console.WriteLine("Зашифрованное сообщение: " + encrypted3 + '\n');
 
-decrypted = RC5.Decrypt(encrypted, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted);
+decrypted = RC5.Decrypt(encrypted3, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
+
+
+
+
+
+

@@ -197,9 +197,10 @@ namespace RC5Lib
                 if (padding != 0)
                 {
                     padding = 16 - padding;
-                    var rng = RandomNumberGenerator.Create();
+                    //var rng = RandomNumberGenerator.Create();
                     byte[] paddingBuf = new byte[padding];
-                    rng.GetNonZeroBytes(paddingBuf);
+                    //rng.GetNonZeroBytes(paddingBuf);
+                    Array.Clear(paddingBuf, 0, padding);
                     writer.Write(paddingBuf);
                 }
                 buf = mstream.ToArray();
@@ -234,7 +235,7 @@ namespace RC5Lib
             }
 
             int bytes = BitConverter.ToInt32(result, 0);
-            return Encoding.UTF8.GetString(result, 4, bytes-4);
+            return Encoding.UTF8.GetString(result, 4, bytes);
         }
     }
 }

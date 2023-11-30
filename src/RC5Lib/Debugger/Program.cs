@@ -3,21 +3,32 @@ using System.Text;
 using RC5Lib;
 
 string key = RC5.KeyGen();
-Console.WriteLine("Ключ: " + key);
+Console.WriteLine("Ключ: " + key + '\n');
 
-string encrypted = RC5.Encrypt("I am a storm that is approaching...", key);
-Console.WriteLine("Зашифрованное сообщение: " + encrypted);
+string message = "Пизда";
+string encrypted1, encrypted2, encrypted3, decrypted;
 
-string decrypted = RC5.Decrypt(encrypted, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted + "\n");
+encrypted1 = RC5.Encrypt(message, key);
+encrypted2 = RC5.Encrypt(message, key);
+encrypted3 = RC5.Encrypt(message, key);
+
+Console.WriteLine("Зашифрованное сообщение: " + encrypted1 + '\n');
+
+decrypted = RC5.Decrypt(encrypted1, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
+
+Console.WriteLine("Зашифрованное сообщение: " + encrypted2 + '\n');
+
+decrypted = RC5.Decrypt(encrypted2, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
+
+Console.WriteLine("Зашифрованное сообщение: " + encrypted3 + '\n');
+
+decrypted = RC5.Decrypt(encrypted3, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
 
 
-string message = "Я ебал в рот (В рот) тех, кто не ебал в рот тех, кто ебал в жопу";
-key = "Я на седьмом этаже, это как шестой, но на один повыше";
-Console.WriteLine("Оригинальное сообщение: " + message);
 
-encrypted = RC5.Encrypt(message, key);
-Console.WriteLine("Зашифрованное сообщение: " + encrypted);
 
-decrypted = RC5.Decrypt(encrypted, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted);
+
+

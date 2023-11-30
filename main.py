@@ -1,19 +1,14 @@
-from flask import Flask, request, session, jsonify, send_from_directory
+from flask import Flask, request, session, jsonify
 import os
 import rc_lib
 import json
 
-app = Flask(__name__, static_folder="react-app/build")
+app = Flask(__name__, static_folder="react-app/build", static_url_path='')
 app.secret_key = 'sh_u_e'
 
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 @app.route('/encrypt', methods=['POST'])

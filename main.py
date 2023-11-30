@@ -1,10 +1,13 @@
-from flask import Flask, request, session, jsonify
+from flask import Flask, request, session, jsonify, render_template
 import rc_lib
 import json
 
 app = Flask(__name__)
 app.secret_key = 'sh_u_e'
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt_message():

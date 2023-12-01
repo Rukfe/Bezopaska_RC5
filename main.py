@@ -6,14 +6,9 @@ import base64
 
 def is_base64(s):
     try:
-        # Попробовать декодировать строку как Base64
-        decoded = base64.b64decode(s, validate=True)
-        # Проверить, является ли результат декодирования валидным UTF-8 строкой
-        # Это дополнительная проверка, так как Base64 должно декодироваться в валидный текст
-        decoded.decode('utf-8')
+        base64.b64decode(s, validate=True)
         return True
     except (ValueError, UnicodeDecodeError):
-        # Если произошла ошибка при декодировании или результат не является валидным UTF-8 текстом
         return False
 
 

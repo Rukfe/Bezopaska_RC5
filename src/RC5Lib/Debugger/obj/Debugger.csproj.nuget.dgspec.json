@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj": {}
+    "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj": {}
   },
   "projects": {
-    "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj": {
+    "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
+        "projectUniqueName": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
         "projectName": "Debugger",
-        "projectPath": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
+        "projectPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
         "packagesPath": "C:\\Users\\skitz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\obj\\",
+        "outputPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\skitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
-                "projectPath": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
+              "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
+                "projectPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
+    "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
+        "projectUniqueName": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
         "projectName": "RC5Lib",
-        "projectPath": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
+        "projectPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj",
         "packagesPath": "C:\\Users\\skitz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\skitz\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\obj\\",
+        "outputPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\skitz\\AppData\\Roaming\\NuGet\\NuGet.Config",

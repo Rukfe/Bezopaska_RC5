@@ -1,34 +1,29 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Text;
+using System.Diagnostics;
 using RC5Lib;
 
-string key = RC5.KeyGen();
+Stopwatch stopwatch = new Stopwatch();
+
+string key = "А адвокат известно что: адвокат — нанятая совесть.";
 Console.WriteLine("Ключ: " + key + '\n');
 
-string message = "Пизда";
-string encrypted1, encrypted2, encrypted3, decrypted;
+String message = "Сострадание есть высочайшая форма человеческого существования.";
+string encrypted, decrypted;
 
-encrypted1 = RC5.Encrypt(message, key);
-encrypted2 = RC5.Encrypt(message, key);
-encrypted3 = RC5.Encrypt(message, key);
+stopwatch.Start();
 
-Console.WriteLine("Зашифрованное сообщение: " + encrypted1 + '\n');
+encrypted = RC5.Encrypt(message, key);
+Console.WriteLine("Зашифрованное сообщение: " + encrypted);
 
-decrypted = RC5.Decrypt(encrypted1, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
+stopwatch.Stop();
+Console.WriteLine("Время шифрования: " + stopwatch.ElapsedMilliseconds + " мс\n");
 
-Console.WriteLine("Зашифрованное сообщение: " + encrypted2 + '\n');
+stopwatch.Reset();
+stopwatch.Start();
 
-decrypted = RC5.Decrypt(encrypted2, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
+decrypted = RC5.Decrypt(encrypted, key);
+Console.WriteLine("Расшифрованное сообщение: " + decrypted);
 
-Console.WriteLine("Зашифрованное сообщение: " + encrypted3 + '\n');
-
-decrypted = RC5.Decrypt(encrypted3, key);
-Console.WriteLine("Расшифрованное сообщение: " + decrypted + '\n');
-
-
-
-
-
-
+stopwatch.Stop();
+Console.WriteLine("Время расшифрования: " + stopwatch.ElapsedMilliseconds + " мс\n");

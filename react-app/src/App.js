@@ -51,7 +51,7 @@ function App() {
       setDecryptedText(data.decrypted_message);
       setPlaceholder('Введите текст'); // Сбрасываем placeholder обратно
     } catch (error) {
-      setDecryptedText('Ошибка: ' + (error.message || 'что-то пошло не так'));
+      setDecryptedText(`Ошибка: ${error.message}`);
     }
   };
 

@@ -6,8 +6,8 @@ namespace RC5Lib
     public static class RC5
     {
         private const int W = 64; //половина длины слова в битах
+        private const int WW = W >> 2; //длина слова в байтах
         private const int R = 128; //количество раундов
-
         private const int BB = W >> 3; //количество байтов в одном машинном слове
 
         /*
@@ -193,10 +193,10 @@ namespace RC5Lib
                 writer.Write(temp.Length);
                 writer.Write(temp);
 
-                int padding = (int)(mstream.Length % 16);
+                int padding = (int)(mstream.Length % WW);
                 if (padding != 0)
                 {
-                    padding = 16 - padding;
+                    padding = WW - padding;
                     //var rng = RandomNumberGenerator.Create();
                     byte[] paddingBuf = new byte[padding];
                     //rng.GetNonZeroBytes(paddingBuf);
@@ -207,13 +207,13 @@ namespace RC5Lib
             }
 
             byte[] result = new byte[buf.Length];
-            byte[] input = new byte[16];
-            byte[] output = new byte[16];
-            for (int i = 0; i < buf.Length / 16; i++)
+            byte[] input = new byte[WW];
+            byte[] output = new byte[WW];
+            for (int i = 0; i < buf.Length / WW; i++)
             {
-                Array.Copy(buf, i * 16, input, 0, 16);
+                Array.Copy(buf, i * WW, input, 0, WW);
                 Cipher(input, output);
-                Array.Copy(output, 0, result, i * 16, 16);
+                Array.Copy(output, 0, result, i * WW, WW);
             }
             return Convert.ToBase64String(result);
         }
@@ -225,13 +225,13 @@ namespace RC5Lib
             Extend(tempkey);
             byte[] tempdata = Convert.FromBase64String(data);
             byte[] result = new byte[tempdata.Length];
-            byte[] input = new byte[16];
-            byte[] output = new byte[16];
-            for (int i = 0; i < tempdata.Length / 16; i++)
+            byte[] input = new byte[WW];
+            byte[] output = new byte[WW];
+            for (int i = 0; i < tempdata.Length / WW; i++)
             {
-                Array.Copy(tempdata, i * 16, input, 0, 16);
+                Array.Copy(tempdata, i * WW, input, 0, WW);
                 Decipher(input, output);
-                Array.Copy(output, 0, result, i * 16, 16);
+                Array.Copy(output, 0, result, i * WW, WW);
             }
 
             int bytes = BitConverter.ToInt32(result, 0);

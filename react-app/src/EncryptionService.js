@@ -19,6 +19,11 @@ const EncryptionService = {
       },
       body: JSON.stringify({ message }),
     });
+    if (!response.ok) {
+      // Можно также добавить response.status, чтобы увидеть код ошибки
+      const errorText = await response.text(); // или response.json(), если сервер возвращает JSON
+      throw new Error(`Ошибка сервера: ${response.status}. Сообщение: ${errorText}`);
+    }
     return response.json();
   },
 

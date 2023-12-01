@@ -1,6 +1,20 @@
 from flask import Flask, request, session, jsonify
 import rc_lib
 import json
+import base64
+
+
+def is_base64(s):
+    try:
+        # Попробовать декодировать строку как Base64
+        decoded = base64.b64decode(s, validate=True)
+        # Проверить, является ли результат декодирования валидным UTF-8 строкой
+        # Это дополнительная проверка, так как Base64 должно декодироваться в валидный текст
+        decoded.decode('utf-8')
+        return True
+    except (ValueError, UnicodeDecodeError):
+        # Если произошла ошибка при декодировании или результат не является валидным UTF-8 текстом
+        return False
 
 
 app = Flask(__name__, static_folder="react-app/build", static_url_path='')
@@ -28,6 +42,8 @@ def encrypt_message():
 @app.route('/decrypt', methods=['POST'])
 def decrypt_message():
     message = request.json['message']
+    if not is_base64(message):
+        return jsonify({'error': 'Сообщение не является корректной строкой Base64'})
     key = session.get('encryption_key')
 
     if key is None:

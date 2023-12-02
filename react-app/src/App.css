@@ -24,8 +24,8 @@ body, html {
   padding: 10px 5px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
   left: -60px;
@@ -33,7 +33,17 @@ body, html {
 }
 
 #encryptButton:hover {
-  background-color: #0056b3;
+  background-color: #000000;
+  border-color: rgb(255, 255, 255);
+  color: #ffffff;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#encryptedText{
+  margin-top: 20px;
+  width: 200px;
+  cursor: not-allowed;
 }
 
 #decryptButton {
@@ -52,9 +62,45 @@ body, html {
   background-color: #0056b3;
 }
 
-#encryptedTextContainer {
+#decryptButton:disabled{
+  background-color: #cccccc; /* более светлый серый фон для заблокированной кнопки */
+  color: #777777;            /* светло-серый текст для заблокированной кнопки */
+  cursor: not-allowed;
+}
+
+#decryptedText{
+  margin-top: 20px;
+  width: 200px;
+  cursor: not-allowed;
+}
+
+#keyText{
+  position: relative;
+  left: 160px;
+  margin-top: 20px;
+  width: 200px;
+  cursor: not-allowed;
+}
+
+#copyKeyButton{
+  position: relative;
+  left: 160px; 
   margin-top: 20px;
 }
+
+#changeKey{
+  position: relative;
+  top: 30px;
+  margin-top: 20px;
+  width: 200px;
+}
+
+#changeButton{
+  position: relative;
+  top: 30px;
+  margin-top: 20px;
+}
+
 .input-error {
   animation: shake 0.5s ease-in-out;
 }
@@ -74,4 +120,10 @@ body, html {
   80%{
       transform: translateX(4px);
   }
+}
+
+
+
+.shake-animation1 {
+  animation: shake 0.5s linear;
 }

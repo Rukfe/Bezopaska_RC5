@@ -13,7 +13,16 @@ function App() {
   const [isKeyVisible, setIsKeyVisible] = useState(false); // Добавляем useState для отслеживания видимости ключа
   const [newKey, setNewKey] = useState(''); // Для ввода нового ключа
   const inputRef = useRef(null); // Создание ref для текстового поля
-
+  const [isEncrypted, setIsEncrypted] = useState(false); // Добавлено новое состояние
+  const encryptedTextRef = useRef(null);
+  const decryptedTextRef = useRef(null);
+  const [keyError, setKeyError] = useState(false);
+  const [keyPlaceholder, setKeyPlaceholder] = useState('Введите новый ключ');
+  const [encryptError, setEncryptError] = useState('Зашифрованный текст')
+  const [inputEncryptError, setEncryptInputError] = useState(false);
+  const [decryptError, setDecryptError] = useState('Расшифрованный текст')
+  const [inputDecryptError, setDecryptInputError] = useState(false);
+  
 
   const focusTextInput = () => {
     if (inputRef.current) {
@@ -21,13 +30,38 @@ function App() {
     }
   };
 
+    // Функция для анимации "дрожания"
+    const shakeInput = () => {
+      setKeyError(true);
+      setKeyPlaceholder("Не удалось поменять ключ")
+      setTimeout(() => {
+        setKeyError(false);
+      }, 500);
+      setTimeout(() => {
+        setKeyPlaceholder('Введите новый ключ')
+      }, 1500);
+    };
+
+
+    // Обработчики копирования текста
+    const copyToClipboard = (ref) => {
+      if (ref && ref.current) {
+        ref.current.select();
+        document.execCommand('copy');
+      }
+    };
+
   const handleEncrypt = async () => {
     if (!inputText.trim()) {
       setInputError(true);
       setPlaceholder('Пожалуйста, введите текст!');
+      setIsEncrypted(false); // Устанавливаем состояние isEncrypted в false
       setTimeout(() => setInputError(false), 500); // Скрываем ошибку через 0.5 секунды
       focusTextInput();
       return;
+    }
+    else{
+      setIsEncrypted(true); // Устанавливаем состояние isEncrypted в true
     }
     try {
       const data = await EncryptionService.encrypt(inputText);
@@ -69,17 +103,49 @@ const toggleKeyVisibility = async () => {
 }
 
 // Обработчик для изменения ключа
-const handleChangeKey = async () => {
-  const response = await EncryptionService.changeKey(newKey);
-  if (response.error) {
-    alert(response.error);
-  } else {
-    setKeyText(newKey); // Обновление отображаемого ключа
-    setNewKey(''); // Очищение поля ввода
-    setIsKeyVisible(true);
-    alert('Ключ успешно изменен');
+  const handleChangeKey = async () => {
+    if (!newKey.trim()) {
+      shakeInput();
+      setKeyPlaceholder('Не удалось поменять ключ');
+      return;
+    } try {
+      const response = await EncryptionService.changeKey(newKey);
+      if (response.error) {
+        shakeInput();
+        setKeyPlaceholder('Не удалось поменять ключ');
+      } else {
+        setKeyText(newKey);
+        setNewKey('');
+        setIsKeyVisible(true);
+        setKeyPlaceholder('Ключ изменен успешно!');
+        setTimeout(() => {
+          setKeyPlaceholder('Введите новый ключ')}, 1500);
+      }
+    } catch (error) {
+      shakeInput();
+      setKeyPlaceholder('Ошибка: ' + (error.message || 'что-то пошло не так'));
+    }
+  };
+
+  const handleEncryptError = async () =>{
+    if (!encryptedText.trim()){
+      setEncryptInputError(true);
+      setEncryptError('Пустое поле!');
+      setTimeout(() => setEncryptInputError(false), 500);
+      setTimeout(() => setEncryptError('Зашифрованный текст'), 1500 )
+      return;
+    }
+  };
+
+  const handleDecryptError = async () =>{
+    if (!decryptedText.trim()){
+      setDecryptInputError(true);
+      setDecryptError('Пустое поле!');
+      setTimeout(() => setDecryptInputError(false), 500);
+      setTimeout(() => setDecryptError('Расшифрованный текст'), 1500 )
+      return;
+    }
   }
-};
 
   return (
     <div id="app">
@@ -93,27 +159,51 @@ const handleChangeKey = async () => {
         className={inputError ? 'input-error' : ''}
       />
       <button id="encryptButton" onClick={handleEncrypt}>Зашифровать</button>
-      <button id="decryptButton" onClick={handleDecrypt}>Расшифровать</button>
+      <button id="decryptButton" onClick={handleDecrypt} disabled={!isEncrypted} // Кнопка будет неактивной, если текст не зашифрован
+      >Расшифровать</button>
       <button id="toggleKeyButton" onClick={toggleKeyVisibility}>
         {isKeyVisible ? 'Скрыть ключ' : 'Показать ключ'}
       </button>
+     
       <div id="encryptedTextContainer">
-        <p>Зашифрованный текст: <span id="encryptedText">{encryptedText}</span></p>
-        <p>Расшифрованный текст: <span id="decryptedText">{decryptedText}</span></p>
+        <input
+          ref={encryptedTextRef}
+          type="text"
+          placeholder={encryptError}
+          id="encryptedText"
+          value={encryptedText}
+          readOnly
+          className={inputEncryptError ? 'input-error' : ''}/>
+        <button onClick={() => {copyToClipboard(encryptedTextRef); handleEncryptError()}}>Копировать</button>
+      </div>
+
+        <div id="decryptedTextContainer">
+        <input
+          ref={decryptedTextRef}
+          type="text"
+          placeholder={decryptError}
+          id="decryptedText"
+          value={decryptedText}
+          readOnly
+          className={inputDecryptError ? 'input-error' : ''}/>
+        <button onClick={() => {copyToClipboard(decryptedTextRef); handleDecryptError()}}>Копировать</button>
+      </div>
+
         {isKeyVisible && (
         <div id="keyContainer">
-          <p>Ваш ключ: <span id="key_word">{key_word}</span></p>
+          <input type="text" id='keyText' placeholder="Ваш ключ" value={key_word} readOnly/>
+          <button onClick={() => copyToClipboard(key_word) } id='copyKeyButton'>Копировать</button>
           <input
-            type="text"
-            placeholder="Введите новый ключ"
-            value={newKey}
-            onChange={(e) => setNewKey(e.target.value)}
-          />
-          <button onClick={handleChangeKey}>Изменить ключ</button>
+          type="text"
+          placeholder={keyPlaceholder}
+          value={newKey}
+          id='changeKey'
+          onChange={(e) => setNewKey(e.target.value)}
+          className={keyError ? 'shake-animation1' : ''}/>
+          <button onClick={handleChangeKey} id='changeButton'>Изменить ключ</button>
         </div>
       )}
       </div>
-    </div>
   );
 }
 

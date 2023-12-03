@@ -1,7 +1,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-image: url("background.jpg");
   background-size: no-repeat;
   background-position: center;
@@ -21,7 +21,7 @@ body, html {
   color: rgb(255, 255, 255);
   position: relative;
   top: -0px;
-  background-color: #000000;
+  background-color: #949494;
   outline: 2px solid #ffffff;
   width: 250px;
   cursor:text;
@@ -29,26 +29,31 @@ body, html {
 
 }
 
-#title{
-  margin-top: 20px;
-  font-size: larger;
-  background-size: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #000000;
-  border-radius: 8px;
-}
+
 #RC5{
   color: #ffffff;
   font-size: 40px;
   font-weight: 1000;
-
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 40px;
 }
 #authors{
   color: #ffffff;
-  font-style: italic;
   position: relative;
   right: -110px;
+  margin-top: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+#madeBy{
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 500;
+  position: relative;
+  right: -215px;
+  top: -31.5px;
+  margin-top: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 
@@ -57,10 +62,15 @@ body, html {
   margin-top: 80px;
   margin-bottom: 10px;
   margin-left: -32px;
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 200px;
+  min-width: 200px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 200px;
+  height: 150px;
 }
 
 #encryptedText{
@@ -89,9 +99,9 @@ body, html {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 31px;
-  background-color: #ffffff;
+  background-color: #c5c5f7;
   color: #ffffff;
-  outline: 2px solid #ffffff;
+  outline: 2px solid #c5c5f7;
   outline-offset: -2px;
   border-radius: 4px;
   cursor: pointer;
@@ -100,9 +110,10 @@ body, html {
 }
 
 .keyButtonT:hover{
-  background-color: #000000;
-  background-image: url("keyOpen.svg");
-  border: 1px solid #ffffff;
+  background-color: #9f9ff0;
+  background-image: url("key.svg");
+  outline: 2px solid #9f9ff0;
+  outline-offset: -2px;
   border-radius: 4px;
 }
 
@@ -135,19 +146,21 @@ body, html {
   padding: 10px 5px;
   border: none;
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
   left: -75px;
   bottom: 0px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #encryptButton:hover {
-  background-color: #000000;
-  color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
+  background-color: #9f9ff0;
+  color: #000000;
+  
 }
 
 #encryptedText{
@@ -187,6 +200,8 @@ body, html {
   margin-top: 20px;
   width: 200px;
   cursor: not-allowed;
+  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
+  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
 }
 
 #encryptKeyButton{
@@ -281,6 +296,8 @@ body, html {
 }
 
 #keyText{
+  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
+  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
   margin-bottom: 10px;
   margin-left: 240px;
   padding: 8px;

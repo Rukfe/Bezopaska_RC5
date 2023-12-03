@@ -168,9 +168,10 @@ const toggleKeyVisibility = async () => {
     <div id="app">
       <div id="title">
       <div id="RC5">Rivest's Cipher 5 (RC5)</div>
-      <div id="authors">Разработано: Sh_U_E Team</div>
+      <div id="authors">Разработано: </div>
+      <div id='madeBy'>Sh_U_E Team</div>
       </div>
-      <input
+      <textarea
         ref={inputRef}
         type="text"
         id="inputText"

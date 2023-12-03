@@ -17,7 +17,62 @@ body, html {
   height: 100%;
 }
 
+#jobCryptText{
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: -0px;
+  background-color: #000000;
+  outline: 2px solid #ffffff;
+  width: 250px;
+  cursor:text;
+  border-radius: 2px;
+
+}
+
+#title{
+  margin-top: 20px;
+  font-size: larger;
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #000000;
+  border-radius: 8px;
+}
+#RC5{
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 1000;
+
+}
+#authors{
+  color: #ffffff;
+  font-style: italic;
+  position: relative;
+  right: -110px;
+
+}
+
+
 #inputText {
+  margin-top: 80px;
+  margin-bottom: 10px;
+  margin-left: -32px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+#encryptedText{
+  margin-top: 200px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+#decryptedText{
   margin-top: 250px;
   margin-bottom: 10px;
   padding: 8px;
@@ -29,11 +84,12 @@ body, html {
 .keyButtonT{
   position: relative;
   top: -113px;
-  right: -130px;
+  right: -114px;
   background-image: url("key.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 31px;
+  background-color: #ffffff;
   color: #ffffff;
   outline: 2px solid #ffffff;
   outline-offset: -2px;
@@ -53,7 +109,7 @@ body, html {
 .keyButtonF{
   position: relative;
   top: -113px;
-  right: -130px;
+  right: -114px;
   background-image: url("keyOpen.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -83,7 +139,7 @@ body, html {
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: -60px;
+  left: -75px;
   bottom: 0px;
 }
 
@@ -109,7 +165,7 @@ body, html {
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: 56px;
+  left: 42px;
   bottom: 36px;
 }
 
@@ -133,33 +189,146 @@ body, html {
   cursor: not-allowed;
 }
 
-#keyText{
+#encryptKeyButton{
+  background-image: url('copy.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  background-size: 25px;
   position: relative;
-  left: 160px;
-  margin-top: 20px;
+  top: 2px;
+  right: -4px;
+  width: 35px;
+  height: 33px;
+  padding: 10px 5px;
+  border: none;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#encryptKeyButton:hover{
+  background-color: #000000;
+  background-image: url('uncopy.svg');
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+#decryptKeyButton{
+  background-image: url('copy.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  background-size: 25px;
+  position: relative;
+  top: 2px;
+  right: -4px;
+  width: 35px;
+  height: 33px;
+  padding: 10px 5px;
+  border: none;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#decryptKeyButton:hover{
+  background-color: #000000;
+  background-image: url('uncopy.svg');
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+#encryptKeyButton{
+  padding: 9px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+
+#copyKeyButton{
+  background-image: url('copy.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  background-size: 25px;
+  position: relative;
+  top: 2px;
+  right: 100px;
+  width: 35px;
+  height: 33px;
+  padding: 10px 5px;
+  border: none;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#copyKeyButton:hover{
+  background-color: #000000;
+  background-image: url('uncopy.svg');
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+#keyText{
+  margin-bottom: 10px;
+  margin-left: 240px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   width: 200px;
-  cursor: not-allowed;
 }
 
 #copyKeyButton{
   position: relative;
-  left: 160px; 
+  left: 5px; 
   margin-top: 20px;
 }
 
 #changeKey{
   position: relative;
-  top: 40px;
-  right: 135px;
-  margin-top: 20px;
+  bottom: -60px;
+  left: -245px;
+  margin-left: -10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   width: 200px;
 }
 
 #changeButton{
   position: relative;
-  top: 40px;
-  right: 135px;
-  margin-top: 20px;
+  top: 70px;
+  right: 240px;
+  background-image: url("key.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 31px;
+  background-color: #ffffff;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 35px;
+  height: 33px;
+}
+
+#changeButton:hover{
+  background-color: #000000;
+  background-image: url("keyOpen.svg");
+  border: 1px solid #ffffff;
+  border-radius: 4px;
 }
 
 .input-error {
@@ -182,7 +351,6 @@ body, html {
       transform: translateX(4px);
   }
 }
-
 
 
 .shake-animation1 {

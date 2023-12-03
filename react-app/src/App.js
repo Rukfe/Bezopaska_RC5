@@ -166,6 +166,10 @@ const toggleKeyVisibility = async () => {
 
   return (
     <div id="app">
+      <div id="title">
+      <div id="RC5">Rivest's Cipher 5 (RC5)</div>
+      <div id="authors">Разработано: Sh_U_E Team</div>
+      </div>
       <input
         ref={inputRef}
         type="text"
@@ -182,7 +186,9 @@ const toggleKeyVisibility = async () => {
       title='Скрыть/показать ключ'
       className={isKeyVisible ? 'keyButtonF' : 'keyButtonT'}>
       </button>
-     
+
+      <div id="jobCryptText">Работа с кодированием и декодированием текста</div>
+
       <div id="encryptedTextContainer">
         <input
           ref={encryptedTextRef}
@@ -192,7 +198,7 @@ const toggleKeyVisibility = async () => {
           value={encryptedText}
           readOnly
           className={inputEncryptError ? 'input-error' : ''}/>
-        <button onClick={() => {copyToClipboard(encryptedTextRef); handleEncryptError()}}>Копировать</button>
+        <button onClick={() => {copyToClipboard(encryptedTextRef); handleEncryptError()}} id ="encryptKeyButton" title='Копировать'></button>
       </div>
 
         <div id="decryptedTextContainer">
@@ -204,13 +210,13 @@ const toggleKeyVisibility = async () => {
           value={decryptedText}
           readOnly
           className={inputDecryptError ? 'input-error' : ''}/>
-        <button onClick={() => {copyToClipboard(decryptedTextRef); handleDecryptError()}}>Копировать</button>
+        <button onClick={() => {copyToClipboard(decryptedTextRef); handleDecryptError()}} id='decryptKeyButton' title='Копировать'></button>
       </div>
 
         {isKeyVisible && (
         <div id="keyContainer">
-          <input type="text" id='keyText' placeholder="Ваш ключ" value={key_word} readOnly/>
-          <button onClick={() => copyToClipboard(key_word) } id='copyKeyButton'>Копировать</button>
+          <input type="text" id='keyText' placeholder="Ключ неизвестен" value={key_word} readOnly/>
+          <button onClick={() => copyToClipboard(key_word)} id='copyKeyButton' title='Копировать'></button>
           <input
           type="text"
           placeholder={keyPlaceholder}
@@ -218,7 +224,7 @@ const toggleKeyVisibility = async () => {
           id='changeKey'
           onChange={(e) => setNewKey(e.target.value)}
           className={keyError ? 'shake-animation1' : ''}/>
-          <button onClick={handleChangeKey} id='changeButton'>Изменить ключ</button>
+          <button onClick={handleChangeKey} id='changeButton' title='Изменить ключ'></button>
         </div>
       )}
       </div>

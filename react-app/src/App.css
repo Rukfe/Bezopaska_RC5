@@ -2,6 +2,11 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
+  background-image: url("background.jpg");
+  background-size: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #000000;
 }
 
 #app {
@@ -13,11 +18,58 @@ body, html {
 }
 
 #inputText {
+  margin-top: 250px;
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 200px;
+}
+
+.keyButtonT{
+  position: fixed;
+  top: 250px;
+  right: 620px;
+  background-image: url("key.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  width: 35px;
+  height: 34px;
+}
+
+.keyButtonT:hover{
+  background-color: #000000;
+  background-image: url("keyOpen.svg");
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+}
+
+.keyButtonF{
+  position: fixed;
+  top: 250px;
+  right: 620px;
+  background-image: url("keyOpen.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #000000;
+  width: 35px;
+  height: 34px;
+}
+
+.keyButtonF:hover{
+  background-color: #ffffff;
+  background-image: url("key.svg");
+  border: 1px solid #000000;
+  border-radius: 4px;
 }
 
 #encryptButton {
@@ -27,9 +79,9 @@ body, html {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  position: relative;
-  left: -60px;
-  bottom: 5px;
+  position: fixed;
+  left: 660px;
+  bottom: 414px;
 }
 
 #encryptButton:hover {
@@ -41,30 +93,35 @@ body, html {
 }
 
 #encryptedText{
-  margin-top: 20px;
+  margin-top: 50px;
   width: 200px;
   cursor: not-allowed;
 }
 
 #decryptButton {
   padding: 10px 5px;
-  border: none;
+  border-width: 2px;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  border: none;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   cursor: pointer;
-  position: relative;
-  left: 58px;
-  bottom: 41px;
+  position: fixed;
+  left: 773px;
+  bottom: 414px;
 }
 
 #decryptButton:hover {
-  background-color: #0056b3;
+  background-color: #000000;
+  color: #ffffff;
+  border-style: solid;
+  border-width: 2px;
 }
 
 #decryptButton:disabled{
   background-color: #cccccc; /* более светлый серый фон для заблокированной кнопки */
   color: #777777;            /* светло-серый текст для заблокированной кнопки */
+  border-color: cccccc;
   cursor: not-allowed;
 }
 

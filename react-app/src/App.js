@@ -85,7 +85,10 @@ function App() {
       setDecryptedText(data.decrypted_message);
       setPlaceholder('Введите текст'); // Сбрасываем placeholder обратно
     } catch (error) {
-      setDecryptedText(`Ошибка: ${error.message}`);
+      setDecryptedText(`Не удалось расшифровать`);
+       setTimeout(() => {
+        setDecryptedText('Расшифрованный текст')
+       }, 1500);
     }
   };
 
@@ -161,8 +164,8 @@ const toggleKeyVisibility = async () => {
       <button id="encryptButton" onClick={handleEncrypt}>Зашифровать</button>
       <button id="decryptButton" onClick={handleDecrypt} disabled={!isEncrypted} // Кнопка будет неактивной, если текст не зашифрован
       >Расшифровать</button>
-      <button id="toggleKeyButton" onClick={toggleKeyVisibility}>
-        {isKeyVisible ? 'Скрыть ключ' : 'Показать ключ'}
+      <button id="toggleKeyButton" onClick={toggleKeyVisibility}
+      className={isKeyVisible ? 'keyButtonF' : 'keyButtonT'}>
       </button>
      
       <div id="encryptedTextContainer">

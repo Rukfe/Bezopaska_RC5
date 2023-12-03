@@ -42,6 +42,17 @@ function App() {
       }, 1500);
     };
 
+    const shakeInputDecrypt = () => {
+      setDecryptInputError(true);
+      setTimeout(() => {
+        setDecryptInputError(false);
+      }, 500);
+      setDecryptError(`Не удалось расшифровать`);
+      setTimeout(() => {
+        setDecryptError(`Расшифрованный текст`);
+      }, 1500);
+    };
+
 
     // Обработчики копирования текста
     const copyToClipboard = (ref) => {
@@ -82,13 +93,16 @@ function App() {
     }
     try {
       const data = await EncryptionService.decrypt(inputText);
+      if (data === ''){
+        shakeInputDecrypt(true);
+        setDecryptError("ошибка")
+      }
+
       setDecryptedText(data.decrypted_message);
       setPlaceholder('Введите текст'); // Сбрасываем placeholder обратно
     } catch (error) {
-      setDecryptedText(`Не удалось расшифровать`);
-       setTimeout(() => {
-        setDecryptedText('Расшифрованный текст')
-       }, 1500);
+      shakeInputDecrypt(true);
+      setDecryptError("ошибка")
     }
   };
 
@@ -165,6 +179,7 @@ const toggleKeyVisibility = async () => {
       <button id="decryptButton" onClick={handleDecrypt} disabled={!isEncrypted} // Кнопка будет неактивной, если текст не зашифрован
       >Расшифровать</button>
       <button id="toggleKeyButton" onClick={toggleKeyVisibility}
+      title='Скрыть/показать ключ'
       className={isKeyVisible ? 'keyButtonF' : 'keyButtonT'}>
       </button>
      

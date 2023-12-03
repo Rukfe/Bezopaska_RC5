@@ -27,19 +27,20 @@ body, html {
 }
 
 .keyButtonT{
-  position: fixed;
-  top: 250px;
-  right: 620px;
+  position: relative;
+  top: -113px;
+  right: -130px;
   background-image: url("key.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35px;
-  border: none;
+  background-size: 31px;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
   border-radius: 4px;
   cursor: pointer;
-  
   width: 35px;
-  height: 34px;
+  height: 33px;
 }
 
 .keyButtonT:hover{
@@ -50,26 +51,28 @@ body, html {
 }
 
 .keyButtonF{
-  position: fixed;
-  top: 250px;
-  right: 620px;
+  position: relative;
+  top: -113px;
+  right: -130px;
   background-image: url("keyOpen.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35px;
-  border: none;
+  background-size: 31px;
+  color: #ffffff;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
   border-radius: 4px;
   cursor: pointer;
   background-color: #000000;
   width: 35px;
-  height: 34px;
+  height: 33px;
 }
 
 .keyButtonF:hover{
   background-color: #ffffff;
   background-image: url("key.svg");
-  border: 1px solid #000000;
-  border-radius: 4px;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
 }
 
 #encryptButton {
@@ -79,17 +82,16 @@ body, html {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  position: fixed;
-  left: 660px;
-  bottom: 414px;
+  position: relative;
+  left: -60px;
+  bottom: 0px;
 }
 
 #encryptButton:hover {
   background-color: #000000;
-  border-color: rgb(255, 255, 255);
   color: #ffffff;
-  border-style: solid;
-  border-width: 2px;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
 }
 
 #encryptedText{
@@ -106,22 +108,22 @@ body, html {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   cursor: pointer;
-  position: fixed;
-  left: 773px;
-  bottom: 414px;
+  position: relative;
+  left: 56px;
+  bottom: 36px;
 }
 
 #decryptButton:hover {
   background-color: #000000;
   color: #ffffff;
-  border-style: solid;
-  border-width: 2px;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
 }
 
 #decryptButton:disabled{
   background-color: #cccccc; /* более светлый серый фон для заблокированной кнопки */
   color: #777777;            /* светло-серый текст для заблокированной кнопки */
-  border-color: cccccc;
+  outline-color: #cccccc;
   cursor: not-allowed;
 }
 
@@ -147,14 +149,16 @@ body, html {
 
 #changeKey{
   position: relative;
-  top: 30px;
+  top: 40px;
+  right: 135px;
   margin-top: 20px;
   width: 200px;
 }
 
 #changeButton{
   position: relative;
-  top: 30px;
+  top: 40px;
+  right: 135px;
   margin-top: 20px;
 }
 

@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\skitz\\.nuget\\packages\\": {}
+    "C:\\Users\\Rukfe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
+      "projectUniqueName": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
       "projectName": "Debugger",
-      "projectPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
-      "packagesPath": "C:\\Users\\skitz\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\obj\\",
+      "projectPath": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\Debugger.csproj",
+      "packagesPath": "C:\\Users\\Rukfe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\Debugger\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\skitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rukfe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
-              "projectPath": "D:\\Documents\\_KFU\\3.1_bezopaska\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
+            "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj": {
+              "projectPath": "C:\\Users\\Rukfe\\Desktop\\Bezopaska_RC5\\src\\RC5Lib\\RC5Lib\\RC5Lib.csproj"
             }
           }
         }
@@ -84,7 +84,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

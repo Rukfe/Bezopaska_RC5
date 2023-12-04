@@ -6,7 +6,6 @@ import EncryptionService from './EncryptionService';
 function App() {
   const [inputText, setInputText] = useState('');
   const [encrypt , setEncryptedText] = useState('');
-  //const [decryptedText, setDecryptedText] = useState('');
   const [key_word, setKeyText] = useState('')
   const [placeholder, setPlaceholder] = useState('Введите текст');
   const [inputError, setInputError] = useState(false);
@@ -40,8 +39,6 @@ function App() {
         setKeyPlaceholder('Введите новый ключ')
       }, 1500);
     };
-
-
 
     // Обработчики копирования текста
     const copyToClipboard = (ref) => {
@@ -179,13 +176,8 @@ const toggleKeyVisibility = async () => {
         <div id="keyContainer" className={keyAnimation}>
           <textarea type="text" id='keyText' placeholder="Ключ неизвестен" ref={keyWord} value={key_word} readOnly/>
           <button onClick={() => copyToClipboard(keyWord)} id='copyKeyButton' title='Копировать'></button>
-          <input
-          type="text"
-          placeholder={keyPlaceholder}
-          value={newKey}
-          id='changeKey'
-          onChange={(e) => setNewKey(e.target.value)}
-          className={keyError ? 'shake-animation1' : ''}/>
+          <input type="text" placeholder={keyPlaceholder} value={newKey} id='changeKey' onChange={(e) => setNewKey(e.target.value)}
+            className={keyError ? 'shake-animation1' : ''}/>
           <button onClick={handleChangeKey} id='changeButton' title='Изменить ключ'></button>
         </div>
       )}

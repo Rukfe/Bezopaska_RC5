@@ -5,8 +5,8 @@ import EncryptionService from './EncryptionService';
 
 function App() {
   const [inputText, setInputText] = useState('');
-  const [encryptedText, setEncryptedText] = useState('');
-  const [decryptedText, setDecryptedText] = useState('');
+  const [encrypt , setEncryptedText] = useState('');
+  //const [decryptedText, setDecryptedText] = useState('');
   const [key_word, setKeyText] = useState('')
   const [placeholder, setPlaceholder] = useState('Введите текст');
   const [inputError, setInputError] = useState(false);
@@ -15,14 +15,13 @@ function App() {
   const inputRef = useRef(null); // Создание ref для текстового поля
   const [isEncrypted, setIsEncrypted] = useState(false); // Добавлено новое состояние
   const encryptedTextRef = useRef(null);
-  const decryptedTextRef = useRef(null);
+  const keyWord = useRef(null);
   const [keyError, setKeyError] = useState(false);
   const [keyPlaceholder, setKeyPlaceholder] = useState('Введите новый ключ');
-  const [encryptError, setEncryptError] = useState('Зашифрованный текст')
+  const [encryptError, setEncryptError] = useState('Зашифрованный / Расшифрованный текст')
   const [inputEncryptError, setEncryptInputError] = useState(false);
-  const [decryptError, setDecryptError] = useState('Расшифрованный текст')
-  const [inputDecryptError, setDecryptInputError] = useState(false);
-  
+  const [outputText, setOutputText] = useState('');
+  const [keyAnimation, setKeyAnimation] = useState('');
 
   const focusTextInput = () => {
     if (inputRef.current) {
@@ -42,16 +41,6 @@ function App() {
       }, 1500);
     };
 
-    const shakeInputDecrypt = () => {
-      setDecryptInputError(true);
-      setTimeout(() => {
-        setDecryptInputError(false);
-      }, 500);
-      setDecryptError(`Не удалось расшифровать`);
-      setTimeout(() => {
-        setDecryptError(`Расшифрованный текст`);
-      }, 1500);
-    };
 
 
     // Обработчики копирования текста
@@ -76,7 +65,10 @@ function App() {
     }
     try {
       const data = await EncryptionService.encrypt(inputText);
-      setEncryptedText(data.encrypted_message);
+      if (data === ""){
+        setPlaceholder('Введите текст');
+      }
+      setOutputText(data.encrypted_message);
       setPlaceholder('Введите текст'); // Сбрасываем placeholder обратно
     } catch (error) {
       setEncryptedText('Ошибка: ' + (error.message || 'что-то пошло не так'));
@@ -93,22 +85,26 @@ function App() {
     }
     try {
       const data = await EncryptionService.decrypt(inputText);
-      if (data === ''){
-        shakeInputDecrypt(true);
-        setDecryptError("ошибка")
-      }
-
-      setDecryptedText(data.decrypted_message);
+      setOutputText(data.decrypted_message);
       setPlaceholder('Введите текст'); // Сбрасываем placeholder обратно
     } catch (error) {
-      shakeInputDecrypt(true);
-      setDecryptError("ошибка")
+      setEncryptedText("ошибка")
     }
   };
+  
 
 // функция для переключения видимости ключа
 const toggleKeyVisibility = async () => {
-  if (!isKeyVisible) {
+  if (isKeyVisible) {
+    // Начинаем анимацию скрытия
+    setKeyAnimation('slide-out');
+    // Даем время анимации завершиться перед сменой видимости
+    setTimeout(() => {
+      setIsKeyVisible(false)}, 500); // 500мс - время анимации в CSS
+  } else {
+    // Начинаем анимацию появления и делаем ключ видимым
+    setIsKeyVisible(true);
+    setKeyAnimation('slide-in');
     try {
       const data = await EncryptionService.getKey();
       setKeyText(data.encryption_key);
@@ -116,8 +112,7 @@ const toggleKeyVisibility = async () => {
       setKeyText('Ошибка: ' + (error.message || 'что-то пошло не так'));
     }
   }
-  setIsKeyVisible(!isKeyVisible); // Переключаем видимость ключа
-}
+};
 
 // Обработчик для изменения ключа
   const handleChangeKey = async () => {
@@ -145,24 +140,14 @@ const toggleKeyVisibility = async () => {
   };
 
   const handleEncryptError = async () =>{
-    if (!encryptedText.trim()){
+    if (!outputText.trim()){
       setEncryptInputError(true);
       setEncryptError('Пустое поле!');
       setTimeout(() => setEncryptInputError(false), 500);
-      setTimeout(() => setEncryptError('Зашифрованный текст'), 1500 )
+      setTimeout(() => setEncryptError('Зашифрованный / Расшифрованный текст'), 1500 )
       return;
     }
   };
-
-  const handleDecryptError = async () =>{
-    if (!decryptedText.trim()){
-      setDecryptInputError(true);
-      setDecryptError('Пустое поле!');
-      setTimeout(() => setDecryptInputError(false), 500);
-      setTimeout(() => setDecryptError('Расшифрованный текст'), 1500 )
-      return;
-    }
-  }
 
   return (
     <div id="app">
@@ -171,53 +156,29 @@ const toggleKeyVisibility = async () => {
       <div id="authors">Разработано: </div>
       <div id='madeBy'>Sh_U_E Team</div>
       </div>
-      <textarea
-        ref={inputRef}
-        type="text"
-        id="inputText"
-        placeholder={placeholder}
-        value={inputText}
+      <div id='inputTextBlock'>
+      <textarea ref={inputRef} type="text" id="inputText" placeholder={placeholder}value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         className={inputError ? 'input-error' : ''}
       />
       <button id="encryptButton" onClick={handleEncrypt}>Зашифровать</button>
-      <button id="decryptButton" onClick={handleDecrypt} disabled={!isEncrypted} // Кнопка будет неактивной, если текст не зашифрован
-      >Расшифровать</button>
-      <button id="toggleKeyButton" onClick={toggleKeyVisibility}
-      title='Скрыть/показать ключ'
-      className={isKeyVisible ? 'keyButtonF' : 'keyButtonT'}>
-      </button>
-
-      <div id="jobCryptText">Работа с кодированием и декодированием текста</div>
-
-      <div id="encryptedTextContainer">
-        <input
-          ref={encryptedTextRef}
-          type="text"
-          placeholder={encryptError}
-          id="encryptedText"
-          value={encryptedText}
-          readOnly
-          className={inputEncryptError ? 'input-error' : ''}/>
-        <button onClick={() => {copyToClipboard(encryptedTextRef); handleEncryptError()}} id ="encryptKeyButton" title='Копировать'></button>
+      <button id="decryptButton" onClick={handleDecrypt}>Расшифровать</button>
       </div>
 
-        <div id="decryptedTextContainer">
-        <input
-          ref={decryptedTextRef}
-          type="text"
-          placeholder={decryptError}
-          id="decryptedText"
-          value={decryptedText}
-          readOnly
-          className={inputDecryptError ? 'input-error' : ''}/>
-        <button onClick={() => {copyToClipboard(decryptedTextRef); handleDecryptError()}} id='decryptKeyButton' title='Копировать'></button>
+      <div id="encryptedTextContainer">
+        <textarea ref={encryptedTextRef} type="text" placeholder={encryptError} id="encryptedText"
+          value={outputText} className={inputEncryptError ? 'input-error' : ''} readOnly />
+        <button id="toggleKeyButton" onClick={toggleKeyVisibility} title='Скрыть/показать ключ'
+          className={isKeyVisible ? '' : ''}>{isKeyVisible ? 'Скрыть ключ' : 'Показать ключ'}
+        </button>
+        <button onClick={() => {copyToClipboard(encryptedTextRef); handleEncryptError()}} 
+          id ="encryptKeyButton" title='Копировать'>Копировать</button>
       </div>
 
         {isKeyVisible && (
-        <div id="keyContainer">
-          <input type="text" id='keyText' placeholder="Ключ неизвестен" value={key_word} readOnly/>
-          <button onClick={() => copyToClipboard(key_word)} id='copyKeyButton' title='Копировать'></button>
+        <div id="keyContainer" className={keyAnimation}>
+          <textarea type="text" id='keyText' placeholder="Ключ неизвестен" ref={keyWord} value={key_word} readOnly/>
+          <button onClick={() => copyToClipboard(keyWord)} id='copyKeyButton' title='Копировать'></button>
           <input
           type="text"
           placeholder={keyPlaceholder}

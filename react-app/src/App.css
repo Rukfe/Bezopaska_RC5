@@ -57,6 +57,14 @@ body, html {
 
 }
 
+#inputTextBlock{
+  margin-left: -130px;
+}
+
+#encryptedTextContainer{
+  margin-left: 400px;
+  margin-top: -242px;
+}
 
 #inputText {
   margin-top: 80px;
@@ -64,22 +72,28 @@ body, html {
   margin-left: -32px;
   max-height: 150px;
   min-height: 150px;
-  max-width: 200px;
-  min-width: 200px;
+  max-width: 280px;
+  min-width: 280px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 200px;
+  width: 280px;
   height: 150px;
 }
 
 #encryptedText{
-  margin-top: 200px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 50px;
+  margin-right: -100px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 200px;
+  width: 280px;
+  height: 150px;
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 280px;
+  min-width: 280px;
 }
 
 #decryptedText{
@@ -150,8 +164,8 @@ body, html {
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: -75px;
-  bottom: 0px;
+  left: -280px;
+  bottom: -25px;
   font-weight: 500;
   font-size: medium;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -171,30 +185,24 @@ body, html {
 
 #decryptButton {
   padding: 10px 5px;
-  border-width: 2px;
-  border-radius: 4px;
   border: none;
-  background-color: #ffffff;
+  border-radius: 4px;
+  background-color: #c5c5f7;
   color: rgb(0, 0, 0);
   cursor: pointer;
   position: relative;
-  left: 42px;
-  bottom: 36px;
+  right: 250px;
+  bottom: -25px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #decryptButton:hover {
-  background-color: #000000;
-  color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
+  background-color: #9f9ff0;
+  color: #000000;
 }
 
-#decryptButton:disabled{
-  background-color: #cccccc; /* более светлый серый фон для заблокированной кнопки */
-  color: #777777;            /* светло-серый текст для заблокированной кнопки */
-  outline-color: #cccccc;
-  cursor: not-allowed;
-}
 
 #decryptedText{
   margin-top: 20px;
@@ -204,31 +212,44 @@ body, html {
   overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
 }
 
-#encryptKeyButton{
-  background-image: url('copy.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ffffff;
-  background-size: 25px;
-  position: relative;
-  top: 2px;
-  right: -4px;
-  width: 35px;
-  height: 33px;
+#toggleKeyButton{
   padding: 10px 5px;
   border: none;
-  color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
   border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
   cursor: pointer;
+  position: relative;
+  left: -180px;
+  top: -15px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#toggleKeyButton:hover {
+  background-color: #9f9ff0;
+  color: #000000;
+}
+
+#encryptKeyButton{
+  padding: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #c5c5f7;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  left: -140px;
+  top: -15px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #encryptKeyButton:hover{
-  background-color: #000000;
-  background-image: url('uncopy.svg');
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
+  background-color: #9f9ff0;
+  color: #000000;
 }
 
 #decryptKeyButton{
@@ -258,98 +279,97 @@ body, html {
   outline-offset: -2px;
 }
 
-#encryptKeyButton{
-  padding: 9px 5px;
-  border: none;
+
+#keyText{
+  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
+  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+  height: 30px;
+  max-height: 30px;
+  min-height: 30px;
+  position: relative;
+  top: -0px;
+  right: -130px;
+  cursor: not-allowed;
 }
 
+#changeKey{
+  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
+  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 451px;
+  min-width: 451px;
+  max-width: 451px;
+  height: 30px;
+  max-height: 30px;
+  min-height: 30px;
+  position: relative;
+  top: 40px;
+  left: -373px;
+}
 
 #copyKeyButton{
   background-image: url('copy.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #ffffff;
-  background-size: 25px;
+  background-color: #c5c5f7;
+  background-size: 30px;
   position: relative;
-  top: 2px;
-  right: 100px;
+  right: -140px; 
+  top: -10px;
   width: 35px;
-  height: 33px;
+  height: 47px;
   padding: 10px 5px;
   border: none;
   color: #ffffff;
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
   border-radius: 4px;
   cursor: pointer;
 }
 
 #copyKeyButton:hover{
-  background-color: #000000;
-  background-image: url('uncopy.svg');
-  outline: 2px solid #ffffff;
-  outline-offset: -2px;
-}
-
-#keyText{
-  resize: both; /* Позволяет изменять размер как по вертикали, так и по горизонтали */
-  overflow: auto; /* Убеждаемся, что полосы прокрутки появляются при необходимости */
-  margin-bottom: 10px;
-  margin-left: 240px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 200px;
-}
-
-#copyKeyButton{
-  position: relative;
-  left: 5px; 
-  margin-top: 20px;
-}
-
-#changeKey{
-  position: relative;
-  bottom: -60px;
-  left: -245px;
-  margin-left: -10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 200px;
+  background-color: #9f9ff0;
+  background-image: url('copy.svg');
 }
 
 #changeButton{
   position: relative;
-  top: 70px;
-  right: 240px;
-  background-image: url("key.svg");
+  top: 57px;
+  right: 364px;
+  background-image: url("keyUpdate.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 31px;
-  background-color: #ffffff;
+  background-color: #c5c5f7;
   color: #ffffff;
-  outline: 2px solid #ffffff;
+  outline: 2px solid #c5c5f7;
   outline-offset: -2px;
   border-radius: 4px;
   cursor: pointer;
   width: 35px;
-  height: 33px;
+  height: 48px;
 }
 
 #changeButton:hover{
-  background-color: #000000;
-  background-image: url("keyOpen.svg");
-  border: 1px solid #ffffff;
-  border-radius: 4px;
+  background-color: #9f9ff0;
+  background-image: url("keyUpdate.svg");
+  outline: 2px solid #9f9ff0;
+  outline-offset: -2px;
 }
 
 .input-error {
   animation: shake 0.5s ease-in-out;
+}
+
+#keyContainer{
+  margin-left: 200px;
+  margin-top: 50px;
 }
 @keyframes shake {
   0%, 100% {
@@ -372,4 +392,33 @@ body, html {
 
 .shake-animation1 {
   animation: shake 0.5s linear;
+}
+
+
+/* Анимация появления блока */
+@keyframes slideIn {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Анимация скрытия блока */
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s forwards; /* Продолжительность появления */
+}
+
+.slide-out {
+  animation: slideOut 0.5s forwards; /* Продолжительность исчезновения */
 }

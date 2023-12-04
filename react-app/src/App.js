@@ -154,7 +154,7 @@ const toggleKeyVisibility = async () => {
       <div id="title">
       <div id="RC5">Rivest's Cipher 5 (RC5)</div>
       <div id="authors">Разработано: </div>
-      <div id='madeBy'>Sh_U_E Team</div>
+      <div id='madeBy'>ShUE Team</div>
       </div>
       <div id='inputTextBlock'>
       <textarea ref={inputRef} type="text" id="inputText" placeholder={placeholder}value={inputText}
